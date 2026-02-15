@@ -16,14 +16,19 @@
                 extend: {
                     colors: {
                         blue: {
+                            50: '#EFF6FF',
+                            100: '#DBEAFE',
                             300: '#93C5FD', /* Luminous Blue for Dark Bg */
                             400: '#60A5FA',
                             500: '#3B82F6',
                             600: '#2563EB', /* Royal Blue */
+                            800: '#1E40AF',
                             900: '#1E3A8A', /* Deep Navy */
+                            950: '#172554',
                         },
                         gray: {
                             900: '#111827',
+                            800: '#1F2937',
                             500: '#6B7280',
                             50: '#F9FAFB',
                         }
@@ -62,18 +67,28 @@
         .slide-fade, .persona-video, .system-slide, .environment-slide {
             transition: opacity 1s ease-in-out;
         }
+
+        /* Card Hover Effects */
+        .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
     </style>
 </head>
 <body class="bg-white">
 
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 transition-all duration-300">
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="text-2xl font-black tracking-tighter text-blue-600">PersonaScape</a>
             <nav class="hidden md:flex space-x-8 text-xs font-bold tracking-widest text-gray-500">
                 <a href="#intro" class="hover:text-blue-600 transition-colors">ビジョン</a>
                 <a href="#system" class="hover:text-blue-600 transition-colors">システム</a>
-                <a href="#ux" class="hover:text-blue-600 transition-colors">体験</a>
+                <a href="#logic" class="hover:text-blue-600 transition-colors">ロジック</a>
+                <a href="#solutions" class="hover:text-blue-600 transition-colors">ソリューション</a>
                 <a href="#business" class="hover:text-blue-600 transition-colors">ビジネスモデル</a>
                 <a href="#roadmap" class="hover:text-blue-600 transition-colors">ロードマップ</a>
             </nav>
@@ -98,14 +113,12 @@
                 <p class="text-blue-300 font-bold tracking-widest mb-6 text-xl md:text-2xl drop-shadow-sm">環境DNA × 人格DNA</p>
                 
                 <!-- Main Title: White text with shadow -->
-                <!-- Update: Adjusted font size and added whitespace-nowrap to prevent awkward breaks -->
                 <h1 class="text-3xl md:text-5xl lg:text-7xl font-black leading-tight mb-8 text-white tracking-tight drop-shadow-lg">
                     <span class="inline-block whitespace-nowrap">採用コストを削減。</span><br>
                     <span class="inline-block text-blue-300 whitespace-nowrap">もう一つの物語へ。</span>
                 </h1>
                 
                 <!-- Subtitle: Light Gray for contrast -->
-                <!-- Update: Made <br> responsive (hidden on mobile) -->
                 <p class="text-lg text-gray-200 mb-8 leading-relaxed font-light drop-shadow-md max-w-2xl">
                     企業の「環境」と個人の「人格」をリアルシミュレーション。<br class="hidden md:inline">
                     ミスマッチによる損失をゼロにし、誰もが自分らしく輝ける「新しいストーリー」を提案します。
@@ -138,19 +151,17 @@
 
             <div class="flex flex-col gap-24 md:gap-32">
                 
-                <!-- Personality DNA Block -->
+                <!-- Personality DNA Block (Improved Layout) -->
                 <div class="grid grid-cols-1 md:grid-cols-12 items-center reveal">
-                    <!-- Image Area (Left) with Slideshow -->
+                    <!-- Image Area -->
                     <div class="md:col-span-7 md:col-start-1 row-start-1 relative z-0">
-                        <div class="relative w-full aspect-video shadow-xl rounded-sm overflow-hidden bg-gray-200">
-                            <!-- Image 1 -->
+                        <div class="relative w-full aspect-video shadow-2xl rounded-sm overflow-hidden bg-gray-200">
                             <img src="persona_01.png" class="system-slide relative z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Personality DNA 1">
-                            <!-- Image 2 -->
                             <img src="persona_02.png" class="system-slide absolute inset-0 z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Personality DNA 2">
                         </div>
                     </div>
-                    <!-- Text Box (Right Overlap) -->
-                    <div class="md:col-span-6 md:col-start-7 row-start-1 relative z-10 bg-white p-10 md:p-14 shadow-2xl mt-8 md:mt-0">
+                    <!-- Text Box (Borderless Design) -->
+                    <div class="md:col-span-6 md:col-start-7 row-start-1 relative z-10 bg-white p-10 md:p-14 shadow-xl rounded-sm mt-8 md:mt-0 hover-card">
                         <div class="text-blue-600 text-5xl mb-6"><i class="fa-solid fa-fingerprint"></i></div>
                         <h3 class="text-3xl font-black mb-4">人格DNA</h3>
                         <p class="text-gray-500 leading-relaxed mb-8">
@@ -165,8 +176,8 @@
 
                 <!-- Environmental DNA Block -->
                 <div class="grid grid-cols-1 md:grid-cols-12 items-center reveal">
-                    <!-- Text Box (Left Overlap) -->
-                    <div class="md:col-span-6 md:col-start-1 row-start-1 relative z-10 bg-white p-10 md:p-14 shadow-2xl order-2 md:order-1 mt-8 md:mt-0">
+                    <!-- Text Box (Borderless Design) -->
+                    <div class="md:col-span-6 md:col-start-1 row-start-1 relative z-10 bg-white p-10 md:p-14 shadow-xl rounded-sm order-2 md:order-1 mt-8 md:mt-0 hover-card">
                         <div class="text-blue-600 text-5xl mb-6"><i class="fa-solid fa-city"></i></div>
                         <h3 class="text-3xl font-black mb-4">環境DNA</h3>
                         <p class="text-gray-500 leading-relaxed mb-8">
@@ -177,12 +188,10 @@
                             鍵：採用コスト1/3 & ミスマッチゼロ
                         </div>
                     </div>
-                    <!-- Image Area (Right) with Slideshow -->
+                    <!-- Image Area -->
                     <div class="md:col-span-7 md:col-start-6 row-start-1 relative z-0 order-1 md:order-2">
-                        <div class="relative w-full aspect-video shadow-xl rounded-sm overflow-hidden bg-gray-200">
-                            <!-- Image 1 -->
+                        <div class="relative w-full aspect-video shadow-2xl rounded-sm overflow-hidden bg-gray-200">
                             <img src="environment_01.png" class="environment-slide relative z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Environmental DNA 1">
-                            <!-- Image 2 -->
                             <img src="environment_02.png" class="environment-slide absolute inset-0 z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Environmental DNA 2">
                         </div>
                     </div>
@@ -192,12 +201,328 @@
         </div>
     </section>
 
-    <!-- 3. UX: Mirror Experience with VIDEO Slideshow -->
-    <section id="ux" class="py-32 bg-white">
+    <!-- NEW SECTION: Simulation Logic (Based on image_aae757.jpg) -->
+    <section id="logic" class="py-32 bg-white text-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Left: Logic Description -->
+                <div class="lg:col-span-5 reveal sticky top-32">
+                    <p class="text-blue-600 font-bold tracking-widest mb-4 text-sm">SIMULATION LOGIC</p>
+                    <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight">
+                        人格DNAが<br>
+                        <span class="text-blue-600">環境DNAでどう動き</span><br>
+                        関係がどう変わるか
+                    </h2>
+                    <p class="text-lg text-gray-500 leading-relaxed mb-8">
+                        RPGのように、人格DNAが環境DNA内で自律的に行動し、その結果としてイベントが発生し、他者との関係性が変化するというループ構造。
+                    </p>
+                    <p class="text-gray-500 text-sm leading-relaxed border-l-2 border-gray-200 pl-4">
+                        アクション &rarr; 結果 &rarr; 関係性更新。<br>
+                        無数のエージェントが織りなす複雑な社会動態を、この基本ループによってシミュレートします。
+                    </p>
+                </div>
+
+                <!-- Right: Logic Steps (Timeline) -->
+                <div class="lg:col-span-7 space-y-8 reveal delay-100">
+                    
+                    <!-- Step 01: Action -->
+                    <div class="bg-gray-50 p-8 rounded-sm hover-card relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-blue-600 group-hover:w-2 transition-all"></div>
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white text-blue-600 shadow-md flex items-center justify-center text-xl rounded-full">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 flex items-center">
+                                    <span class="text-blue-600 mr-2">01.</span> アクション
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    各人格DNAは、自身の特性と周囲の環境DNAに基づいて、次にとるべき行動を決定します。<br>
+                                    <span class="text-gray-400 text-xs mt-2 block">例：「カフェで仕事をする」「祭りに参加する」</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 02: Event -->
+                    <div class="bg-gray-50 p-8 rounded-sm hover-card relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-blue-400 group-hover:w-2 transition-all"></div>
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white text-blue-400 shadow-md flex items-center justify-center text-xl rounded-full">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 flex items-center">
+                                    <span class="text-blue-400 mr-2">02.</span> イベント発生
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    アクションの結果、様々な出来事が発生します。人格DNAの状態変数（ストレス、疲労など）が変化し、経験値が蓄積されます。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 03: Relation Update -->
+                    <div class="bg-gray-50 p-8 rounded-sm hover-card relative overflow-hidden group">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500 group-hover:w-2 transition-all"></div>
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white text-indigo-500 shadow-md flex items-center justify-center text-xl rounded-full">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 flex items-center">
+                                    <span class="text-indigo-500 mr-2">03.</span> 関係性更新
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">
+                                    アクションやイベントを通じて他者と関わることで、特定の人格DNA間の関係性（友好、敵対、信頼など）が動的に変化します。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 1: B2B Hiring Process (Refined: No colored borders) -->
+    <section id="solutions" class="py-32 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-20 reveal">
+                <p class="text-blue-400 font-bold tracking-widest mb-4 text-sm">SIMULATED INTELLIGENCE // HIRING PROCESS</p>
+                <h2 class="text-3xl md:text-5xl font-black mb-8 leading-tight">
+                    企業は自社の<span class="text-blue-400">環境DNA</span>を投入し、<br>
+                    採用前に<span class="text-blue-200">適合を可視化</span>する
+                </h2>
+                <p class="text-gray-400 text-lg max-w-3xl">
+                    企業が自社の風土や社員データを「環境DNA」として投入することで、採用活動前に、自社に適合する可能性の高い人材特性をデータに基づき予測・可視化します。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch reveal">
+                
+                <!-- Left Column: Input Data (Background style instead of border) -->
+                <div class="bg-gray-800 rounded-sm p-10 hover-card">
+                    <p class="text-xs font-bold text-gray-500 tracking-widest mb-8 uppercase">Input Data // Environment_DNA</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-900/50 flex items-center justify-center text-blue-400 rounded-md">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">企業風土・文化</h4>
+                                <p class="text-gray-400 text-sm">会社の価値観、コミュニケーションスタイル、意思決定プロセスなど。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-900/50 flex items-center justify-center text-blue-400 rounded-md">
+                                <i class="fa-solid fa-desktop"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">職場環境</h4>
+                                <p class="text-gray-400 text-sm">オフィス環境、リモートワーク制度、福利厚生などの諸制度。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-900/50 flex items-center justify-center text-blue-400 rounded-md">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">既存社員データ</h4>
+                                <p class="text-gray-400 text-sm">活躍している社員の（匿名化された）人格DNAプロファイル。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Output Value (Gradient background instead of colored border) -->
+                <div class="bg-gradient-to-br from-blue-900/30 to-gray-800 p-10 rounded-sm flex flex-col justify-between hover-card">
+                    <div>
+                        <p class="text-xs font-bold text-blue-300 tracking-widest mb-8 uppercase text-right">Output_Value // Optimization</p>
+                        
+                        <h4 class="text-2xl font-bold mb-4 text-blue-300">
+                            <i class="fa-solid fa-chart-line mr-2"></i> 適合性の予測・可視化
+                        </h4>
+                        <p class="text-gray-300 mb-12 leading-relaxed">
+                            採用活動を始める前に、世の中にどのタイプの候補者が自社の環境に<strong class="text-white border-b border-blue-400">最も適合する可能性が高いか</strong>を、客観的なデータに基づいて予測します。
+                        </p>
+                    </div>
+
+                    <div class="bg-blue-950/50 p-6 rounded-sm border-l-4 border-blue-500">
+                        <p class="text-xs font-bold text-gray-400 mb-2">PARADIGM SHIFT</p>
+                        <p class="text-lg font-bold text-white">
+                            勘や経験に頼った採用から、<br>
+                            <span class="text-blue-300">データドリブンな科学的採用へ。</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 2: Platform Concept (Refined: No borders) -->
+    <section class="py-32 bg-white text-gray-900 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                <!-- Left Column: Title & Input -->
+                <div class="lg:col-span-1 reveal">
+                    <p class="text-blue-600 font-bold tracking-widest mb-4 text-sm">PLATFORM CONCEPT</p>
+                    <h2 class="text-3xl md:text-4xl font-black mb-8 leading-tight">
+                        自分に近い<br>キャラクターが<br>
+                        <span class="text-blue-600">別世界で生きる意味</span>
+                    </h2>
+                    
+                    <!-- Card with faint bg instead of border -->
+                    <div class="bg-blue-50/50 p-8 rounded-sm mt-8 border-l-4 border-blue-600">
+                        <p class="text-xs font-bold text-gray-500 tracking-widest mb-4 uppercase">Input Data</p>
+                        <h4 class="text-xl font-bold mb-4">人格DNAの生成</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            ユーザーは質問に答え、自分の特性に近いアバターを生成。<br>
+                            「もう一つの人生」の起点を創る。
+                        </p>
+                        <!-- Decorative Bar graph icon -->
+                        <div class="flex gap-1 h-4 items-end">
+                            <div class="w-1 h-full bg-blue-600"></div>
+                            <div class="w-1 h-2/3 bg-blue-400"></div>
+                            <div class="w-1 h-1/2 bg-blue-300"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Modes -->
+                <div class="lg:col-span-2 flex flex-col justify-center gap-8 reveal delay-100">
+                    
+                    <!-- Observation Mode (Shadow instead of border) -->
+                    <div class="flex flex-col md:flex-row gap-6 p-8 bg-white shadow-lg rounded-sm hover-card">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-blue-100 text-blue-600 flex items-center justify-center text-2xl rounded-full">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-2">
+                                <h3 class="text-2xl font-bold">観察</h3>
+                                <span class="px-2 py-1 bg-blue-50 text-blue-800 text-xs font-bold rounded uppercase">Observation</span>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                自分と似たアバターが、異なる環境で自律的に生活し、人間関係を築く様子を映画のように眺める。
+                                <strong class="text-blue-900">客観的な視点</strong>から、自分の特性や選択の傾向を深く理解する。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Co-Experience Mode (Shadow instead of border) -->
+                    <div class="flex flex-col md:flex-row gap-6 p-8 bg-white shadow-lg rounded-sm hover-card">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-blue-50 text-blue-600 flex items-center justify-center text-2xl rounded-full">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-2">
+                                <h3 class="text-2xl font-bold">共体験</h3>
+                                <span class="px-2 py-1 bg-blue-50 text-blue-800 text-xs font-bold rounded uppercase">Co-Experience</span>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                時にはアバターと同期し、直接行動を操作して物語に介入する。単なる観察者ではなく、
+                                <strong class="text-blue-800">当事者として</strong>異世界の人生に関わり、楽しみながら新たな一面を発見する。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="text-right mt-4">
+                        <p class="text-sm font-bold text-gray-400">
+                            単なるゲームではなく、<span class="text-blue-600 border-b border-blue-600">自己発見のツール</span>としての体験価値
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 3: Online to Offline Sync (Based on image_aa8d84.jpg) -->
+    <section class="py-32 bg-blue-950 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Left: Concept Title -->
+                <div class="lg:col-span-5 reveal">
+                    <div class="inline-block px-3 py-1 bg-blue-900 text-blue-300 text-xs font-bold tracking-widest mb-6">ONLINE &rarr; OFFLINE</div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">
+                        イベント作成で<br>
+                        <span class="text-blue-400">現実に集う</span>
+                    </h2>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-10">
+                        アプリ内の企画が、現実の「同期（Sync）」を生み出す。<br>
+                        それは単なるオフ会ではなく、経験値をかけた<strong class="text-white border-b border-blue-500">ミッションへと進化</strong>する。
+                    </p>
+                    
+                    <div class="hidden lg:block relative h-64 w-full border-l border-blue-900 ml-4 pl-8 pt-4">
+                        <p class="text-xs text-blue-500 font-mono mb-2">SYNC_STATUS: ACTIVE</p>
+                        <p class="text-xs text-blue-500 font-mono mb-2">DNA_MATCH: CALCULATING...</p>
+                        <p class="text-xs text-blue-500 font-mono">INCENTIVE_MODULE: LOADED</p>
+                    </div>
+                </div>
+
+                <!-- Right: 3 Phases -->
+                <div class="lg:col-span-7 space-y-12 reveal delay-100">
+                    
+                    <!-- Phase 01 -->
+                    <div class="relative pl-10 border-l-2 border-blue-800">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 bg-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)]"></span>
+                        <p class="text-xs font-bold text-blue-400 mb-2 uppercase">Phase 01 // Digital</p>
+                        <h3 class="text-2xl font-bold mb-3">イベント企画と募集</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            ユーザーがアプリ内で「●月●日、××公園でキャンプファイヤー」のような具体的なイベントを提案。システムを通じて興味のある他ユーザーが集まる。
+                        </p>
+                        <div class="bg-blue-900/30 px-4 py-2 rounded text-xs font-mono text-blue-300 inline-block">
+                            <i class="fa-solid fa-fire mr-2"></i>EXAMPLE: CAMPFIRE AT PARK_XX
+                        </div>
+                    </div>
+
+                    <!-- Phase 02 -->
+                    <div class="relative pl-10 border-l-2 border-green-800">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 bg-green-500 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)]"></span>
+                        <p class="text-xs font-bold text-green-400 mb-2 uppercase">Phase 02 // Reality</p>
+                        <h3 class="text-2xl font-bold mb-3">現実空間での同期 (Sync)</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            指定された日時に現実の場所で集合する。ここでユーザーの人格DNAと行動が一致（同期）することで、システムは「エンゲージメントの成立」を認識する。
+                        </p>
+                    </div>
+
+                    <!-- Phase 03 -->
+                    <div class="relative pl-10 border-l-2 border-yellow-800">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 bg-yellow-500 rounded-full shadow-[0_0_15px_rgba(234,179,8,0.5)]"></span>
+                        <p class="text-xs font-bold text-yellow-400 mb-2 uppercase">Phase 03 // Reward</p>
+                        <h3 class="text-2xl font-bold mb-3">経験値ブースト発生</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                同期イベント時は、アバターが独立稼働する通常時よりも<strong class="text-white">多くの経験値</strong>を獲得できる。
+                            </p>
+                            <div class="text-xs text-gray-500 leading-relaxed border-t border-gray-700 pt-2 mt-2 md:mt-0 md:border-t-0 md:border-l md:pl-4">
+                                <span class="block font-bold text-gray-400 mb-1">IMPACT</span>
+                                オンライン行動 → オフライン体験 → オンライン活性化という持続的な循環を創出。
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. UX: Mirror Experience (Refined styles) -->
+    <section id="ux" class="py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             
             <!-- Video Slideshow Container -->
-            <div class="order-2 md:order-1 reveal relative w-full h-[400px] md:h-[500px] shadow-2xl rounded-sm overflow-hidden bg-gray-100">
+            <div class="order-2 md:order-1 reveal relative w-full h-[400px] md:h-[500px] shadow-2xl rounded-sm overflow-hidden bg-white">
                 <!-- Video 1 -->
                 <video class="persona-video absolute inset-0 w-full h-full object-cover opacity-100" muted playsinline>
                     <source src="persona_01.mp4" type="video/mp4">
@@ -239,36 +564,36 @@
         </div>
     </section>
 
-    <!-- 4. BUSINESS MODEL -->
+    <!-- 4. BUSINESS MODEL (Refined: No colored borders) -->
     <section id="business" class="py-32 bg-blue-900 text-white">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl font-black mb-16 text-center">ビジネスモデルと収益</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center reveal">
-                <!-- B2C -->
-                <div class="p-8 border border-gray-700 hover:border-blue-600 transition-colors">
-                    <p class="text-blue-400 font-bold mb-2 text-sm">B2C (サブスクリプション)</p>
-                    <div class="text-5xl font-black mb-4 font-sans">6,000万円<span class="text-xl font-normal text-gray-500">/年</span></div>
-                    <p class="text-gray-400 text-sm">
+                <!-- B2C (Clean border) -->
+                <div class="p-8 border border-blue-700/30 bg-blue-800/30 backdrop-blur-sm rounded-sm hover:bg-blue-800/50 transition-colors">
+                    <p class="text-blue-300 font-bold mb-2 text-sm">B2C (サブスクリプション)</p>
+                    <div class="text-5xl font-black mb-4 font-sans">6,000万円<span class="text-xl font-normal text-blue-200">/年</span></div>
+                    <p class="text-blue-200 text-sm">
                         ユーザーの5%が月額1,000円を利用。<br>
                         運営費を賄う低リスクな収益基盤。
                     </p>
                 </div>
-                <!-- B2B -->
-                <div class="p-8 bg-blue-800 border border-blue-600 relative overflow-hidden">
+                <!-- B2B (Main Highlight) -->
+                <div class="p-8 bg-blue-600 rounded-sm relative overflow-hidden shadow-2xl transform md:-translate-y-4">
                     <div class="absolute top-0 right-0 bg-white text-blue-900 text-xs font-bold px-3 py-1">MAIN</div>
-                    <p class="text-blue-300 font-bold mb-2 text-sm">B2B (採用・広告)</p>
-                    <div class="text-5xl font-black mb-4 font-sans">2億円<span class="text-xl font-normal text-blue-300">/年</span></div>
-                    <p class="text-blue-200 text-sm">
+                    <p class="text-white font-bold mb-2 text-sm">B2B (採用・広告)</p>
+                    <div class="text-5xl font-black mb-4 font-sans text-white">2億円<span class="text-xl font-normal text-blue-100">/年</span></div>
+                    <p class="text-white text-sm">
                         採用手数料・広告費。<br>
                         わずか100社の参画で達成可能。
                     </p>
                 </div>
-                <!-- LOCAL -->
-                <div class="p-8 border border-gray-700 hover:border-blue-600 transition-colors">
-                    <p class="text-blue-400 font-bold mb-2 text-sm">地方創生・送客</p>
+                <!-- LOCAL (Clean border) -->
+                <div class="p-8 border border-blue-700/30 bg-blue-800/30 backdrop-blur-sm rounded-sm hover:bg-blue-800/50 transition-colors">
+                    <p class="text-blue-300 font-bold mb-2 text-sm">地方創生・送客</p>
                     <div class="text-3xl font-black mb-4 font-sans mt-4">無限の拡張性</div>
-                    <p class="text-gray-400 text-sm mt-4">
+                    <p class="text-blue-200 text-sm mt-4">
                         自治体・施設との連携。<br>
                         送客手数料によるリアル経済圏の創出。
                     </p>
@@ -304,14 +629,14 @@
                 </div>
 
                 <!-- The Ask -->
-                <div class="bg-gray-50 p-12 flex flex-col justify-center reveal delay-100">
+                <div class="bg-gray-50 p-12 flex flex-col justify-center reveal delay-100 rounded-sm">
                     <p class="text-blue-600 font-bold tracking-widest mb-4 text-sm">資金調達計画</p>
                     <h2 class="text-6xl font-black mb-8 font-sans">5,000万円</h2>
                     <p class="text-lg text-gray-500 mb-8">
                         初期開発と市場獲得のためのシード資金。<br>
                         社会インフラとしての市場掌握を目指します。
                     </p>
-                    <div class="w-full bg-gray-200 h-2 mb-4">
+                    <div class="w-full bg-gray-200 h-2 mb-4 rounded-full overflow-hidden">
                         <div class="bg-blue-600 h-2 w-[16.5%]"></div>
                     </div>
                     <div class="flex justify-between text-xs font-bold text-gray-500">
@@ -429,5 +754,6 @@
             }
         });
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </body>
 </html>
