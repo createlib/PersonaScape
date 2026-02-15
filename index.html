@@ -84,16 +84,16 @@
     </header>
 
     <!-- 1. INTRO: Hero Section (Night Camping Background) -->
-    <section id="intro" class="relative pt-40 pb-40 overflow-hidden bg-gray-900">
+    <section id="intro" class="relative pt-40 pb-40 overflow-hidden bg-gray-900 min-h-screen flex items-center">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="image_a92482.jpg" alt="Night Camping Voxel Art" class="w-full h-full object-cover">
+            <img src="hero.png" alt="Night Camping Voxel Art" class="w-full h-full object-cover">
             <!-- Dark Gradient Overlay for Text Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/70 to-transparent"></div>
         </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-            <div class="max-w-2xl reveal">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-3xl reveal">
                 <!-- Text Color: Luminous Blue 300 -->
                 <p class="text-blue-300 font-bold tracking-widest mb-6 text-xl md:text-2xl drop-shadow-sm">環境DNA × 人格DNA</p>
                 
@@ -104,7 +104,7 @@
                 </h1>
                 
                 <!-- Subtitle: Light Gray for contrast -->
-                <p class="text-lg text-gray-200 mb-8 leading-relaxed font-light drop-shadow-md">
+                <p class="text-lg text-gray-200 mb-8 leading-relaxed font-light drop-shadow-md max-w-2xl">
                     企業の「環境」と個人の「人格」をリアルシミュレーション。<br>
                     ミスマッチによる損失をゼロにし、誰もが自分らしく輝ける「新しいストーリー」を提案します。
                 </p>
@@ -176,7 +176,7 @@
                             <!-- Image 1 -->
                             <img src="environment_01.png" class="environment-slide relative z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Environmental DNA 1">
                             <!-- Image 2 -->
-                            <img src="environment_02.png" class="environment-slide absolute inset-0 z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Environmental DNA 2">
+                            <img src="environment_02.jpg" class="environment-slide absolute inset-0 z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-0" alt="Environmental DNA 2">
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,6 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             
             <!-- Video Slideshow Container -->
-            <!-- 横長画像・動画用に高さを固定しつつ object-cover で表示 -->
             <div class="order-2 md:order-1 reveal relative w-full h-[400px] md:h-[500px] shadow-2xl rounded-sm overflow-hidden bg-gray-100">
                 <!-- Video 1 -->
                 <video class="persona-video absolute inset-0 w-full h-full object-cover opacity-100" muted playsinline>
