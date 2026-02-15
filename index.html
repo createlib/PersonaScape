@@ -15,7 +15,6 @@
             theme: {
                 extend: {
                     colors: {
-                        // Changed from Indigo to Blue
                         blue: {
                             600: '#2563EB', /* Royal Blue */
                             900: '#1E3A8A', /* Deep Navy */
@@ -56,8 +55,8 @@
             transform: translateY(-2px);
         }
 
-        /* Slide Styles */
-        .slide-fade {
+        /* Transition Styles */
+        .slide-fade, .persona-video {
             transition: opacity 1s ease-in-out;
         }
     </style>
@@ -81,7 +80,7 @@
         </div>
     </header>
 
-    <!-- 1. INTRO: Hero Section (Friction to Harmony) -->
+    <!-- 1. INTRO: Hero Section -->
     <section id="intro" class="relative pt-40 pb-24 md:pt-60 md:pb-40 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div class="reveal">
@@ -122,7 +121,6 @@
                 <!-- Personality DNA Block -->
                 <div class="grid grid-cols-1 md:grid-cols-12 items-center reveal">
                     <!-- Image Area (Left) with Slideshow -->
-                    <!-- 横長画像を考慮し aspect-video (16:9) を設定 -->
                     <div class="md:col-span-7 md:col-start-1 row-start-1 relative z-0">
                         <div class="relative w-full aspect-video shadow-xl rounded-sm overflow-hidden bg-gray-200">
                             <img src="persona_01.png" class="system-slide relative z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Personality DNA 1">
@@ -161,7 +159,6 @@
                         </div>
                     </div>
                     <!-- Image Area (Right) with Slideshow -->
-                    <!-- 横長画像を考慮し aspect-video (16:9) を設定 -->
                     <div class="md:col-span-7 md:col-start-6 row-start-1 relative z-0 order-1 md:order-2">
                         <div class="relative w-full aspect-video shadow-xl rounded-sm overflow-hidden bg-gray-200">
                             <img src="environment_01.png" class="environment-slide relative z-10 w-full h-full object-cover transition-opacity duration-1000 opacity-100" alt="Environmental DNA 1">
@@ -174,18 +171,33 @@
         </div>
     </section>
 
-    <!-- 3. UX: Mirror Experience with Image Slideshow -->
+    <!-- 3. UX: Mirror Experience with VIDEO Slideshow -->
     <section id="ux" class="py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
             
-            <!-- Image Slideshow Container -->
-            <!-- 横長画像用に高さを固定しつつ object-cover で表示 -->
+            <!-- Video Slideshow Container -->
+            <!-- 横長画像・動画用に高さを固定しつつ object-cover で表示 -->
             <div class="order-2 md:order-1 reveal relative w-full h-[400px] md:h-[500px] shadow-2xl rounded-sm overflow-hidden bg-gray-100">
-                <img src="persona_01.png" class="persona-slide absolute inset-0 w-full h-full object-cover opacity-100" alt="Persona Slide 1">
-                <img src="persona_02.png" class="persona-slide absolute inset-0 w-full h-full object-cover opacity-0" alt="Persona Slide 2">
-                <img src="persona_03.png" class="persona-slide absolute inset-0 w-full h-full object-cover opacity-0" alt="Persona Slide 3">
-                <img src="persona_04.png" class="persona-slide absolute inset-0 w-full h-full object-cover opacity-0" alt="Persona Slide 4">
-                <img src="persona_05.png" class="persona-slide absolute inset-0 w-full h-full object-cover opacity-0" alt="Persona Slide 5">
+                <!-- Video 1 -->
+                <video class="persona-video absolute inset-0 w-full h-full object-cover opacity-100" muted playsinline>
+                    <source src="persona_01.mp4" type="video/mp4">
+                </video>
+                <!-- Video 2 -->
+                <video class="persona-video absolute inset-0 w-full h-full object-cover opacity-0" muted playsinline>
+                    <source src="persona_02.mp4" type="video/mp4">
+                </video>
+                <!-- Video 3 -->
+                <video class="persona-video absolute inset-0 w-full h-full object-cover opacity-0" muted playsinline>
+                    <source src="persona_03.mp4" type="video/mp4">
+                </video>
+                <!-- Video 4 -->
+                <video class="persona-video absolute inset-0 w-full h-full object-cover opacity-0" muted playsinline>
+                    <source src="persona_04.mp4" type="video/mp4">
+                </video>
+                <!-- Video 5 -->
+                <video class="persona-video absolute inset-0 w-full h-full object-cover opacity-0" muted playsinline>
+                    <source src="persona_05.mp4" type="video/mp4">
+                </video>
                 
                 <!-- Fallback/Overlay (Optional) -->
                 <div class="absolute bottom-4 right-4 text-white/50 text-xs font-bold tracking-widest z-10 pointer-events-none">
@@ -340,25 +352,7 @@
             revealOnScroll();
 
             // Function to handle image slideshows
-            function initSlideshow(selector, intervalTime) {
-                const slides = document.querySelectorAll(selector);
-                if (slides.length > 0) {
-                    let currentSlide = 0;
-                    setInterval(() => {
-                        // Find the container for this specific set of slides if multiple slideshows exist on page
-                        // But here we use unique class names per slideshow or just rely on querySelectorAll order
-                        // Since querySelectorAll returns a flat list, we need to group them by container.
-                        
-                        // Improved Logic: Select containers first
-                        // But for simplicity in this generated code, we will assume selector targets distinct sets 
-                        // properly managed or we use a more robust approach below.
-                    }, intervalTime);
-                }
-            }
-
-            // Robust Slideshow Initializer
             function runSlideshow(slideClassName, interval) {
-                // Get all elements with the class
                 const allSlides = document.querySelectorAll(slideClassName);
                 if(allSlides.length === 0) return;
 
@@ -391,10 +385,36 @@
                 });
             }
 
-            // Initialize Slideshows
-            runSlideshow('.persona-slide', 3000);
+            // Initialize Image Slideshows
             runSlideshow('.system-slide', 3000);
             runSlideshow('.environment-slide', 3000);
+
+            // Initialize Video Slideshow
+            const videos = document.querySelectorAll('.persona-video');
+            if (videos.length > 0) {
+                let currentVideo = 0;
+                
+                // Ensure the first video is playing
+                videos[0].play().catch(e => console.log("Auto-play prevented by browser policy"));
+
+                setInterval(() => {
+                    const nextVideoIndex = (currentVideo + 1) % videos.length;
+                    
+                    // Pre-play the next video to ensure smooth transition
+                    videos[nextVideoIndex].currentTime = 0;
+                    videos[nextVideoIndex].play().catch(e => console.log("Auto-play prevented"));
+
+                    // Crossfade
+                    videos[currentVideo].classList.remove('opacity-100');
+                    videos[currentVideo].classList.add('opacity-0');
+                    
+                    videos[nextVideoIndex].classList.remove('opacity-0');
+                    videos[nextVideoIndex].classList.add('opacity-100');
+                    
+                    // Update index
+                    currentVideo = nextVideoIndex;
+                }, 3000); // 3 seconds interval
+            }
         });
     </script>
 </body>
