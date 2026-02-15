@@ -451,8 +451,8 @@
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                 
-                <!-- Left: Concept Title -->
-                <div class="lg:col-span-5 reveal">
+                <!-- Left: Concept Title & Video -->
+                <div class="lg:col-span-5 reveal sticky top-32">
                     <div class="inline-block px-3 py-1 bg-blue-900 text-blue-300 text-xs font-bold tracking-widest mb-6">ONLINE &rarr; OFFLINE</div>
                     <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">
                         イベント作成で<br>
@@ -463,10 +463,15 @@
                         それは単なるオフ会ではなく、経験値をかけた<strong class="text-white border-b border-blue-500">ミッションへと進化</strong>する。
                     </p>
                     
-                    <div class="hidden lg:block relative h-64 w-full border-l border-blue-900 ml-4 pl-8 pt-4">
-                        <p class="text-xs text-blue-500 font-mono mb-2">SYNC_STATUS: ACTIVE</p>
-                        <p class="text-xs text-blue-500 font-mono mb-2">DNA_MATCH: CALCULATING...</p>
-                        <p class="text-xs text-blue-500 font-mono">INCENTIVE_MODULE: LOADED</p>
+                    <!-- Added Video: camp_01.mp4 -->
+                    <div class="rounded-sm overflow-hidden shadow-2xl border border-blue-800 relative">
+                        <video class="w-full h-auto object-cover" autoplay muted loop playsinline>
+                            <source src="camp_01.mp4" type="video/mp4">
+                        </video>
+                        <!-- Optional Overlay for context -->
+                        <div class="absolute bottom-3 left-3 bg-black/60 px-2 py-1 rounded text-[10px] text-blue-300 font-mono backdrop-blur-sm">
+                            SYNC_MODE: ACTIVE
+                        </div>
                     </div>
                 </div>
 
